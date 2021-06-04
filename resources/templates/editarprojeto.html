@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>LA Arquitetura | Editar Projeto</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a th:href="@{/}">Home</a></li>
+          <li><a th:href="@{/equipe}">Equipe</a></li>
+          <li><a th:href="@{/cursos}">Nossos Cursos</a></li>
+          <li><a th:href="@{/projetos}">Projetos em Andamento</a></li>
+          <li><a th:href="@{/admin}">Admin</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Editar Projeto</h1>
+      <form
+        action="#"
+        th:action="@{'/editarprojeto/'+${cdProjeto}}"
+        method="post"
+      >
+        <label for="nmProjeto">
+          Nome do Projeto:
+          <input
+            required
+            type="text"
+            th:field="*{old.nmProjeto}"
+            id="nmProjeto"
+            name="nmProjeto"
+          />
+        </label>
+        <label for="dsProjeto">
+          Descrição do Projeto:
+          <textarea
+            required
+            th:field="*{old.dsProjeto}"
+            id="dsProjeto"
+            name="dsProjeto"
+            cols="30"
+            rows="10"
+          >
+          </textarea>
+        </label>
+        <label for="cdFuncionario">
+          Código do Responsável pelo Projeto:
+          <input
+            required
+            type="text"
+            th:field="*{old.cdFuncionario}"
+            id="cdFuncionario"
+            name="cdFuncionario"
+          />
+        </label>
+        <input type="submit" value="Editar Projeto" />
+      </form>
+    </main>
+  </body>
+</html>

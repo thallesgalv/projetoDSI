@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>LA Arquitetura | Nossos Cursos</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a th:href="@{/}">Home</a></li>
+          <li><a th:href="@{/equipe}">Equipe</a></li>
+          <li><a th:href="@{/cursos}">Nossos Cursos</a></li>
+          <li><a th:href="@{/projetos}">Projetos em Andamento</a></li>
+          <li><a th:href="@{/admin}">Admin</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Nossos Cursos</h1>
+      <section th:each="curso : ${curso}" class="flexContainer">
+        <article class="card">
+          <p class="card__Title" th:text="${curso.nmCurso}"></p>
+          <p class="card__Description" th:text="${curso.dsCurso}"></p>
+          <p class="card__Description" th:text="${curso.cdFuncionario}"></p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

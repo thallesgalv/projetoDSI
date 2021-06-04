@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>LA Arquitetura | Cadastrar Funcionário</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a th:href="@{/}">Home</a></li>
+          <li><a th:href="@{/equipe}">Equipe</a></li>
+          <li><a th:href="@{/cursos}">Nossos Cursos</a></li>
+          <li><a th:href="@{/projetos}">Projetos em Andamento</a></li>
+          <li><a th:href="@{/admin}">Admin</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Cadastrar Funcionário</h1>
+      <form
+        action="#"
+        th:action="@{/sucessofuncionario}"
+        method="post"
+        th:object="${funcionario}"
+        class="box"
+      >
+        <label for="nmFuncionario">
+          Nome do Funcionário:
+          <input
+            required
+            type="text"
+            th:field="*{nmFuncionario}"
+            id="nmFuncionario"
+            name="nmFuncionario"
+          />
+        </label>
+        <label for="nmCargo">
+          Cargo do Funcionário:
+          <input
+            required
+            type="text"
+            th:field="*{nmCargo}"
+            id="nmCargo"
+            name="nmCargo"
+          />
+        </label>
+        <label for="ftFuncionario">
+          URL da Foto do Funcionário
+          <input
+            required
+            type="text"
+            th:field="*{ftFuncionario}"
+            id="ftFuncionario"
+            name="ftFuncionario"
+          />
+        </label>
+        <input type="submit" value="Cadastrar Funcionário" />
+      </form>
+    </main>
+  </body>
+</html>

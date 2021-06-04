@@ -1,19 +1,33 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="utf-8">
-<title>Página principal</title>
-</head>
-<body>
-	<h1>Projeto NBA</h1>
-	<nav>
-		<ul>
-			<li><a th:href="@{/jogadores}">Jogadores</a></li>
-			<li><a th:href="@{/times}">Times</a></li>
-			<li><a th:href="@{/estadios}">Estadios</a></li>
-			<li><a th:href="@{/classificacao}">Classificação</a></li>
-			<li><a th:href="@{/monteseudreamteam}">Monte seu Dream Team</a></li>
-		</ul>
-	</nav>
-</body>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>LA Arquitetura</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a th:href="@{/}">
+            <img th:src=@{img/logo.png} alt="Logo">
+        </a>
+        <ul>
+          <li><a th:href="@{/}" class="active">Home</a></li>
+          <li><a th:href="@{/equipe}">Equipe</a></li>
+          <li><a th:href="@{/cursos}">Nossos Cursos</a></li>
+          <li><a th:href="@{/projetos}">Projetos em Andamento</a></li>
+          <li><a th:href="@{/admin}">Admin</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="home">
+      <section>
+        <div class="img"></div>
+        <h1>LA Arquitetura</h1>
+        <p>Com a LA Arquitetura, sua tão sonhada reforma de apartamento é feita de forma simples e descomplicada, centralizando na nossa equipe todos os serviços que envolvem uma obra.</p>
+        <p>Nossos arquitetos e especialistas em decoração cuidam de tudo: desde a concepção do projeto, escolha dos materiais de acabamento, execução dos serviços com mão de obra qualificada, gerenciamento de fornecedores e todas as fases de uma reforma de apartamento. E o melhor: tudo em um contrato único.</p>
+        <p>Também ministramos diversos cursos na área!</p>
+      </section>
+    </main>
+  </body>
 </html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>LA Arquitetura | Admin</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a th:href="@{/}">Home</a></li>
+          <li><a th:href="@{/equipe}">Equipe</a></li>
+          <li><a th:href="@{/cursos}">Nossos Cursos</a></li>
+          <li><a th:href="@{/projetos}">Projetos em Andamento</a></li>
+          <li><a th:href="@{/admin}">Admin</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Área do Administrador</h1>
+
+      <h2>Funcionários</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Nome</th>
+            <th>Cargo</th>
+            <th>Foto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="funcionario : ${funcionario}">
+            <td th:text="${funcionario.cdFuncionario}"></td>
+            <td th:text="${funcionario.nmFuncionario}"></td>
+            <td th:text="${funcionario.nmCargo}"></td>
+            <td>
+              <img th:src="${funcionario.ftFuncionario}" alt="membro da equipe">
+            </td>
+            <td>
+              <form th:action="@{'/editarfuncionario/'+${funcionario.cdFuncionario}}" method="post">
+                <input type="submit" value="Editar Funcionário">
+              </form>
+            </td>
+            <td>
+              <form th:action="@{'/excludefuncionario/'+${funcionario.cdFuncionario}}" method="post">
+                <input type="submit" value="Deletar Funcionário">
+              </form>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <a th:href="@{/funcionario}" class="btnCadastro" > Cadastrar Funcionário</a>
+
+      <h2>Cursos</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Nome</th>
+            <th>Responsável</th>
+            <th>Descrição</th>
+          </tr>
+        </thead>
+          <tbody>
+            <tr th:each="curso : ${curso}">
+              <td th:text="${curso.cdCurso}"></td>
+              <td th:text="${curso.nmCurso}"></td>
+              <td th:text="${curso.cdFuncionario}"></td>
+              <td th:text="${curso.dsCurso}"></td>
+              <td>
+                <form th:action="@{'/editarcurso/'+${curso.cdCurso}}" method="post">
+                  <input type="submit" value="Editar Curso">
+                </form>
+              </td>
+              <td>
+                <form th:action="@{'/excludecurso/'+${curso.cdCurso}}" method="post">
+                  <input type="submit" value="Deletar Curso">
+                </form>
+              </td>
+            </tr>
+          </tbody>
+      </table>
+
+      <a th:href="@{/curso}" class="btnCadastro" > Cadastrar Curso</a>
+
+
+      <h2>Projetos em andamento</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Nome</th>
+            <th>Responsável</th>
+            <th>Descrição</th>
+          </tr>
+        </thead>   
+          <tbody>
+            <tr th:each="projeto : ${projeto}">
+              <td th:text="${projeto.cdProjeto}"></td>
+              <td th:text="${projeto.nmProjeto}"></td>
+              <td th:text="${projeto.cdFuncionario}"></td>
+              <td th:text="${projeto.dsProjeto}"></td>
+              <td>
+                <form th:action="@{'/editarprojeto/'+${projeto.cdProjeto}}" method="post">
+                  <input type="submit" value="Editar Projeto">
+                </form>
+              </td>
+              <td>
+                <form th:action="@{'/excludeprojeto/'+${projeto.cdProjeto}}" method="post">
+                  <input type="submit" value="Deletar Projeto">
+                </form>
+              </td>
+            </tr>
+          </tbody>
+      </table>
+
+      <a th:href="@{/projeto}" class="btnCadastro" > Cadastrar Projeto</a>
+      
+    </main>
+  </body>
+</html>

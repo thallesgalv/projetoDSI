@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>LA Arquitetura | Cadastrar Curso</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a th:href="@{/}">Home</a></li>
+          <li><a th:href="@{/equipe}">Equipe</a></li>
+          <li><a th:href="@{/cursos}">Nossos Cursos</a></li>
+          <li><a th:href="@{/projetos}">Projetos em Andamento</a></li>
+          <li><a th:href="@{/admin}">Admin</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Cadastrar Curso</h1>
+      <form
+        action="#"
+        th:action="@{/sucessocurso}"
+        method="post"
+        th:object="${curso}"
+        class="box"
+      >
+        <label for="nmCurso">
+          Nome do Curso:
+          <input
+            required
+            type="text"
+            th:field="*{nmCurso}"
+            id="nmCurso"
+            name="nmCurso"
+          />
+        </label>
+        <label for="dsCurso">
+          Descrição do Curso:
+          <textarea
+            required
+            th:field="*{dsCurso}"
+            id="dsCurso"
+            name="dsCurso"
+            cols="30"
+            rows="10"
+          >
+          </textarea>
+        </label>
+        <label for="cdFuncionario">
+          Código do Responsável pelo Curso:
+          <input
+            required
+            type="text"
+            th:field="*{cdFuncionario}"
+            id="cdFuncionario"
+            name="cdFuncionario"
+          />
+        </label>
+        <input type="submit" value="Cadastrar Curso" />
+      </form>
+    </main>
+  </body>
+</html>
